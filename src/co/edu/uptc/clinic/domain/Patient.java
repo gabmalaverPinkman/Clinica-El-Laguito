@@ -20,7 +20,7 @@ public class Patient {
 	private IdentificationTypeEnum identificationType;
 	
 	/** Atributo que determina el numero de identificación del paciente */
-	private String idPatient;
+	private Integer idPatient;
 	
 	/** Atributo que determina el Nombre del paciente */
     private String firstName;
@@ -36,6 +36,9 @@ public class Patient {
      */
     private Set<String> medicationHistory;
     
+    /**
+     * Atributo que determina la prioridad de cada paciente
+     */
     private PriorityEnum priority;
 
 	
@@ -48,7 +51,7 @@ public class Patient {
 	 * @param lastName
 	 * @param email Parámetro que determina
 	 */
-	public Patient(IdentificationTypeEnum identificationType, String idPatient, String firstName, String lastName,
+	public Patient(IdentificationTypeEnum identificationType, Integer idPatient, String firstName, String lastName,
 			String email, LinkedHashSet<String> medicationsHistory, PriorityEnum priority) {
 		super();
 		this.identificationType = identificationType;
@@ -112,7 +115,7 @@ public class Patient {
 	 *
 	 * @return valor de idPatient
 	 */
-	public String getIdPatient() {
+	public Integer getIdPatient() {
 		return idPatient;
 	}
 
@@ -122,7 +125,7 @@ public class Patient {
 	 *
 	 * @param idPatient nuevo valor de idPatient
 	 */
-	public void setIdPatient(String idPatient) {
+	public void setIdPatient(Integer idPatient) {
 		this.idPatient = idPatient;
 	}
 
@@ -185,5 +188,40 @@ public class Patient {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-  
+
+	/**
+	 * Método encargado de retornar el valor de medicationHistory.
+	 *
+	 * @return valor de medicationHistory
+	 */
+	public Set<String> getMedicationHistory() {
+		return medicationHistory;
+	}
+
+	/**
+	 * Método encargado de establecer el valor de medicationHistory.
+	 *
+	 * @param medicationHistory nuevo valor de medicationHistory
+	 */
+	public void setMedicationHistory(Set<String> medicationHistory) {
+		this.medicationHistory = medicationHistory;
+	}
+
+	/**
+	 * Método encargado de retornar el valor de priority.
+	 *
+	 * @return valor de priority
+	 */
+	public PriorityEnum getPriority() {
+		return priority;
+	}
+
+	/**
+	 * Método encargado de establecer el valor de priority.
+	 *
+	 * @param priority nuevo valor de priority
+	 */
+	public void setPriority(PriorityEnum priority) {
+		this.priority = priority;
+	}
 }

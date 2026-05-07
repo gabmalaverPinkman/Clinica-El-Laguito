@@ -5,12 +5,27 @@ import java.util.HashSet;
 
 import co.edu.uptc.clinic.domain.Patient;
 
+/**
+ * Nombre de la clase: PatientRepository
+ *
+ * <p>Clase que gestiona el almacenamiento de la información de cada paciente</p>
+ *
+ * <p><b>Responsabilidades:</b></p>
+ * <ul>
+ *   <li>Modificar el almacenamiento y los datos de cada paciente</li>
+ * </ul>
+ *
+ *
+ * @author gabma
+ * @version 1.0
+ * @since 6/05/2026
+ */
 public class PatientRepository {
 	
 	/**
 	 * Atributo que determina el mapa de pacientes del sistema
 	 */
-	private HashMap<String, Patient> patients;
+	private HashMap<Integer, Patient> patients;
 	
 	/**
 	 * Atributo que determina el conjunto de emails registrados en el sistema
@@ -23,7 +38,7 @@ public class PatientRepository {
 	 * @param patients
 	 * @param emails Parámetro que determina
 	 */
-	public PatientRepository(HashMap<String, Patient> patients, HashSet<String> emails) {
+	public PatientRepository(HashMap<Integer, Patient> patients, HashSet<String> emails) {
 		super();
 		this.patients = patients;
 		this.emails = emails;
@@ -55,13 +70,61 @@ public class PatientRepository {
 	 }
 	
 	
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de veridficar si un paciente existe segun su id <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param id
+	 * @return boolean
+	 */
+	public boolean existById(Integer id) {
+		return patients.containsKey(id);
+	}
+	
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de Añadir el medicamento al conjunto de 
+	 * medicamentos del paciente. <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param idPatient
+	 * @param medication
+	 * 
+	 * @return boolean
+	 */
+	public boolean addMedication(Integer idPatient, String medication) {
+		Patient patient = findById(idPatient);
+		if (patient == null) {
+			return false;
+		}
+		return patient.getMedicationHistory().add(medication);
+	}
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de buscar y devolver el paciente
+	 * encontrado por su id <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param idPatient
+	 * @return
+	 * @return Patient
+	 * @throws Exception [Condición en la que ocurre]
+	 */
+	public Patient findById(Integer idPatient) {
+		return patients.get(idPatient);
+	}
+
 
 	/**
 	 * Método encargado de retornar el valor de patients.
 	 *
 	 * @return valor de patients
 	 */
-	public HashMap<String, Patient> getPatients() {
+	public HashMap<Integer, Patient> getPatients() {
 		return patients;
 	}
 
@@ -70,7 +133,7 @@ public class PatientRepository {
 	 *
 	 * @param patients nuevo valor de patients
 	 */
-	public void setPatients(HashMap<String, Patient> patients) {
+	public void setPatients(HashMap<Integer, Patient> patients) {
 		this.patients = patients;
 	}
 
@@ -91,7 +154,4 @@ public class PatientRepository {
 	public void setEmails(HashSet<String> emails) {
 		this.emails = emails;
 	}
-
-	
-	
 }

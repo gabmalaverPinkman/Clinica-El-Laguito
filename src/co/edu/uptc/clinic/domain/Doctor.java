@@ -1,5 +1,7 @@
 package co.edu.uptc.clinic.domain;
 
+import java.util.Objects;
+
 import co.edu.uptc.clinic.enums.IdentificationTypeEnum;
 
 /**
@@ -11,7 +13,7 @@ import co.edu.uptc.clinic.enums.IdentificationTypeEnum;
  * @version 1.0
  * @since 6/05/2026
  */
-public class Doctor {
+public class Doctor implements Comparable<Doctor>{
 	
 	/**
 	 * Atributo que determina el tipo de indentificación
@@ -21,7 +23,7 @@ public class Doctor {
 	/**
 	 * Atributo que determina el id del medico
 	 */
-	private int medicalId;
+	private Integer medicalId;
 	
 	/**
 	 * Atributo que determina el primer nombre del médico.
@@ -53,7 +55,7 @@ public class Doctor {
 	 * @param specialty
 	 * @param yearsOfExperience Parámetro que determina
 	 */
-	public Doctor(IdentificationTypeEnum identificationType, int medicalId, String firstName, String lastName,
+	public Doctor(IdentificationTypeEnum identificationType, Integer medicalId, String firstName, String lastName,
 			String specialty, int yearsOfExperience) {
 		super();
 		this.identificationType = identificationType;
@@ -63,6 +65,45 @@ public class Doctor {
 		this.specialty = specialty;
 		this.yearsOfExperience = yearsOfExperience;
 	}
+	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int compareTo(Doctor o) {
+		// TODO Auto-generated method stub
+		int resultCompareExp = Integer.compare(this.yearsOfExperience, o.yearsOfExperience);
+		if(resultCompareExp == 0) {
+			String fullName = this.firstName +" "+this.lastName;
+			String fullNameO = o.firstName+" "+o.lastName;
+			return fullName.compareTo(fullNameO);
+		}
+		return resultCompareExp;
+	}
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.medicalId, this.identificationType);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		Doctor auxDoc = (Doctor) obj;
+		return auxDoc.getMedicalId().equals(this.medicalId) && auxDoc.getIdentificationType() == this.identificationType;
+	}
+
+
 
 	/**
 	 * Método encargado de retornar el valor de identificationType.
@@ -87,7 +128,7 @@ public class Doctor {
 	 *
 	 * @return valor de medicalId
 	 */
-	public int getMedicalId() {
+	public Integer getMedicalId() {
 		return medicalId;
 	}
 
@@ -96,7 +137,7 @@ public class Doctor {
 	 *
 	 * @param medicalId nuevo valor de medicalId
 	 */
-	public void setMedicalId(int medicalId) {
+	public void setMedicalId(Integer medicalId) {
 		this.medicalId = medicalId;
 	}
 

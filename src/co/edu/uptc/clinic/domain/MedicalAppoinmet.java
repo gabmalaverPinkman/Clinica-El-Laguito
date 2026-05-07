@@ -1,13 +1,27 @@
 package co.edu.uptc.clinic.domain;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
+/**
+ * Nombre de la clase: MedicalAppoinmet
+ *
+ * <p>Clase modelo que representa la información de cada cita médica</p>
+ *
+ * <p><b>Responsabilidades:</b></p>
+ * <ul>
+ *   <li>representar la información de cada cita médica</li>
+ *
+ * @author gabma
+ * @version 1.0
+ * @since 6/05/2026
+ */
 public class MedicalAppoinmet {
 	
 	/**
 	 * Atributo que determina el identificador de la cita médica
 	 */
-	private int idMeducalAppoinmet;
+	private Integer idMeducalAppoinmet;
 	
 	/**
 	 * Atributo que determina la hora de la cita médica
@@ -32,20 +46,51 @@ public class MedicalAppoinmet {
 	 * @param patient
 	 * @param doctor Parámetro que determina
 	 */
-	public MedicalAppoinmet(int idMeducalAppoinmet, LocalTime timeAppoinmet, Patient patient, Doctor doctor) {
+	public MedicalAppoinmet(Integer idMeducalAppoinmet, LocalTime timeAppoinmet, Patient patient, Doctor doctor) {
 		super();
 		this.idMeducalAppoinmet = idMeducalAppoinmet;
 		this.timeAppoinmet = timeAppoinmet;
 		this.patient = patient;
 		this.doctor = doctor;
 	}
+	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.idMeducalAppoinmet);
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		MedicalAppoinmet auxMedicalA = (MedicalAppoinmet) obj;
+		return this.idMeducalAppoinmet.equals(auxMedicalA.getIdMeducalAppoinmet());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return "MedicalAppoinmet [idMeducalAppoinmet=" + idMeducalAppoinmet + ", timeAppoinmet=" + timeAppoinmet
+				+ ", patient=" + patient + ", doctor=" + doctor + "]";
+	}
+
+
 
 	/**
 	 * Método encargado de retornar el valor de idMeducalAppoinmet.
 	 *
 	 * @return valor de idMeducalAppoinmet
 	 */
-	public int getIdMeducalAppoinmet() {
+	public Integer getIdMeducalAppoinmet() {
 		return idMeducalAppoinmet;
 	}
 
@@ -54,7 +99,7 @@ public class MedicalAppoinmet {
 	 *
 	 * @param idMeducalAppoinmet nuevo valor de idMeducalAppoinmet
 	 */
-	public void setIdMeducalAppoinmet(int idMeducalAppoinmet) {
+	public void setIdMeducalAppoinmet(Integer idMeducalAppoinmet) {
 		this.idMeducalAppoinmet = idMeducalAppoinmet;
 	}
 
