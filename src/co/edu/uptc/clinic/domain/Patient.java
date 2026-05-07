@@ -1,8 +1,13 @@
 package co.edu.uptc.clinic.domain;
 
+
+
 import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 import co.edu.uptc.clinic.enums.IdentificationTypeEnum;
+import co.edu.uptc.clinic.enums.PriorityEnum;
 
 
 /**
@@ -15,7 +20,7 @@ public class Patient {
 	private IdentificationTypeEnum identificationType;
 	
 	/** Atributo que determina el numero de identificación del paciente */
-	private int idPatient;
+	private String idPatient;
 	
 	/** Atributo que determina el Nombre del paciente */
     private String firstName;
@@ -25,6 +30,13 @@ public class Patient {
     
     /** Atributo que determina el Correo electrónico del paciente */
     private String email;
+    
+    /**
+     * Atributo que determina el conjunto de medicamentos del paciente
+     */
+    private Set<String> medicationHistory;
+    
+    private PriorityEnum priority;
 
 	
 	/**
@@ -36,16 +48,44 @@ public class Patient {
 	 * @param lastName
 	 * @param email Parámetro que determina
 	 */
-	public Patient(IdentificationTypeEnum identificationType, int idPatient, String firstName, String lastName,
-			String email) {
+	public Patient(IdentificationTypeEnum identificationType, String idPatient, String firstName, String lastName,
+			String email, LinkedHashSet<String> medicationsHistory, PriorityEnum priority) {
 		super();
 		this.identificationType = identificationType;
 		this.idPatient = idPatient;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.medicationHistory = new LinkedHashSet<String>();
+		this.priority = priority;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.idPatient, this.identificationType);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) { 
+		Patient auxPatient = (Patient) obj;
+		return this.idPatient.equals(auxPatient.getIdPatient()) && this.identificationType == auxPatient.getIdentificationType();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return "Patient [identificationType=" + identificationType + ", idPatient=" + idPatient + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", medicationHistory=" + medicationHistory
+				+ ", priority=" + priority + "]";
+	}
 
 	/**
 	 * Método encargado de retornar el valor de identificationType.
@@ -72,7 +112,7 @@ public class Patient {
 	 *
 	 * @return valor de idPatient
 	 */
-	public int getIdPatient() {
+	public String getIdPatient() {
 		return idPatient;
 	}
 
@@ -82,7 +122,7 @@ public class Patient {
 	 *
 	 * @param idPatient nuevo valor de idPatient
 	 */
-	public void setIdPatient(int idPatient) {
+	public void setIdPatient(String idPatient) {
 		this.idPatient = idPatient;
 	}
 

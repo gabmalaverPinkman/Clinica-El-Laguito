@@ -1,5 +1,0 @@
-package co.edu.uptc.clinic.domain;
-
-public class prueba {
-	private int xxxxx;
-}
