@@ -1,0 +1,61 @@
+
+package co.edu.uptc.clinic.repository;
+
+import java.util.HashMap;
+
+import co.edu.uptc.clinic.domain.Doctor;
+
+/**
+ * Nombre de la clase: DoctorRepository
+ *
+ * <p>Clase responsable de la gestión de la informacion y almacenamiento de la informacón de cada doctor</p>
+ *
+ * <p><b>Responsabilidades:</b></p>
+ * <ul>
+ *   <li>Gestionar almacenamiento e información de cada doctor</li>
+ *
+ * @author gabma
+ * @version 1.0
+ * @since 6/05/2026
+ */
+public class DoctorRepository {
+	
+	/**
+	 * Atributo que determina el mapa de los medicos registrados
+	 */
+	private HashMap<Integer, Doctor> doctors;
+
+	/**
+	 * Crea una nueva instancia de DoctorRepository.
+	 *
+	 * @param doctors Parámetro que determina
+	 */
+	public DoctorRepository(HashMap<Integer, Doctor> doctors) {
+		super();
+		this.doctors = doctors;
+	}
+	
+	
+
+	/**
+	 * Método encargado de retornar el valor de doctors.
+	 *
+	 * @return valor de doctors
+	 */
+	public HashMap<Integer, Doctor> getDoctors() {
+		return doctors;
+	}
+
+	/**
+	 * Método encargado de establecer el valor de doctors.
+	 *
+	 * @param doctors nuevo valor de doctors
+	 */
+	public void setDoctors(HashMap<Integer, Doctor> doctors) {
+		this.doctors = doctors;
+	}
+	
+	
+	
+
+}
