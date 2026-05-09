@@ -25,17 +25,53 @@ public class DoctorRepository {
 	 */
 	private HashMap<Integer, Doctor> doctors;
 
+	
 	/**
 	 * Crea una nueva instancia de DoctorRepository.
 	 *
-	 * @param doctors Parámetro que determina
+	 * @param doctors Parámetro que determina el mapa de doctores.
 	 */
 	public DoctorRepository(HashMap<Integer, Doctor> doctors) {
 		super();
 		this.doctors = doctors;
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de añadir un nuevo doctor al mapa de doctores. <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param newDoctor
+	 * @return boolean 
+	 */
+	public boolean addDoctor(Doctor newDoctor) {
+		this.doctors.put(newDoctor.getMedicalId(), newDoctor);
+		return true;
+	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de verificar si existe un doctor en el sistema <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param doctor 
+	 * @return boolean Retorna true si el doctor que recibe el metodo existe, y retorna false si no existe.
+	 */
+	public boolean existById(Doctor doctor) {
+		return doctors.containsKey(doctor.getMedicalId());
+	}
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de buscar y devolver un doctor según su id <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param key encargado de recibir el Id del doctor a buscar
+	 * @return Doctor Retorna el doctor buscado
+	 */
+	public Doctor findById(Integer key) {
+		return this.doctors.get(key);
+	}
 
 	/**
 	 * Método encargado de retornar el valor de doctors.

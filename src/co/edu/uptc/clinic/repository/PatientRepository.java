@@ -3,6 +3,7 @@ package co.edu.uptc.clinic.repository;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import co.edu.uptc.clinic.domain.Doctor;
 import co.edu.uptc.clinic.domain.Patient;
 
 /**
