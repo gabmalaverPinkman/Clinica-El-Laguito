@@ -57,8 +57,8 @@ public class DoctorRepository {
 	 * @param doctor 
 	 * @return boolean Retorna true si el doctor que recibe el metodo existe, y retorna false si no existe.
 	 */
-	public boolean existById(Doctor doctor) {
-		return doctors.containsKey(doctor.getMedicalId());
+	public boolean existById(Integer key) {
+		return doctors.containsKey(key);
 	}
 	
 	/**
@@ -71,6 +71,10 @@ public class DoctorRepository {
 	 */
 	public Doctor findById(Integer key) {
 		return this.doctors.get(key);
+	}
+	
+	public HashMap<Integer, Doctor> findAll(){
+		return this.doctors;
 	}
 
 	/**

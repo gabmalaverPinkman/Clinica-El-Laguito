@@ -43,7 +43,7 @@ public class Doctor implements Comparable<Doctor>{
 	/**
 	 * Atributo que determina los años de experiencia del médico
 	 */
-	private int yearsOfExperience;
+	private Integer yearsOfExperience;
 
 	/**
 	 * Crea una nueva instancia de Doctor.
@@ -200,7 +200,7 @@ public class Doctor implements Comparable<Doctor>{
 	 *
 	 * @return valor de yearsOfExperience
 	 */
-	public int getYearsOfExperience() {
+	public Integer getYearsOfExperience() {
 		return yearsOfExperience;
 	}
 
