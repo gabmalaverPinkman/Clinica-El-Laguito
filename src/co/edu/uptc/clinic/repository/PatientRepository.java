@@ -46,31 +46,18 @@ public class PatientRepository {
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de agregar un nuevo paciente <br>
+	 * <b>Descripción: </b> Método encargado de agregar un nuevo paciente y un nuevo email al sistema<br>
 	 * 
 	 * @author gabma
 	 *
-	 * @param patient
-	 * @return boolean
+	 * @param patient Recibe un objeto de tipo Patient
+	 * @return boolean Retorna verdadero si se agregó el email y el paciente, o falso si no se agregaron.
 	 */
 	public boolean addPatient(Patient patient) {
-		patients.put(patient.getIdPatient(), patient);
-		return true;
+		emails.add(patient.getEmail()); 
+	    patients.put(patient.getIdPatient(), patient); 
+	    return true;
 	}
-	
-	 /**
-	 * <b>Descripción: </b> Método encargado de agragar un nuevo email al conjunto de emails<br>
-	 * 
-	 * @author gabma
-	 *
-	 * @param newEmail
-	 * @return boolean
-	 */
-	public boolean addEmail(String newEmail) {
-		 return emails.add(newEmail);
-	 }
-	
-	
 	
 	/**
 	 * <b>Descripción: </b> Método encargado de veridficar si un paciente existe segun su id <br>
