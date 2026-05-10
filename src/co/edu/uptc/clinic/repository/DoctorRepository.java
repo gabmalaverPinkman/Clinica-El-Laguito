@@ -54,7 +54,7 @@ public class DoctorRepository {
 	 * 
 	 * @author gabma
 	 *
-	 * @param doctor 
+	 * @param key Recibe el id del doctor a buscar
 	 * @return boolean Retorna true si el doctor que recibe el metodo existe, y retorna false si no existe.
 	 */
 	public boolean existById(Integer key) {

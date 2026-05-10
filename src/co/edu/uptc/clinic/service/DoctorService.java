@@ -3,6 +3,7 @@
  */
 package co.edu.uptc.clinic.service;
 
+import java.util.HashMap;
 import java.util.TreeSet;
 
 import co.edu.uptc.clinic.domain.Doctor;
@@ -70,6 +71,15 @@ public class DoctorService {
 		return true;
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de Añadir un doctor al sistema <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param doctor Recibe un objeto de tipo doctor
+	 * @return
+	 * @return boolean Retorna True si fue posible añadir al nuevo doctor y false si no, estó segun el resultado de la validación. 
+	 */
 	public boolean addDoctor(Doctor doctor) {
 		if(validation(doctor)) {
 			return this.doctorRepository.addDoctor(doctor);
@@ -77,6 +87,16 @@ public class DoctorService {
 		return false;
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de determinar si un doctor existe según su id<br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param id Recibe el id del doctor a buscar en el sistema
+	 * @return
+	 * @return boolean Returna true si existe un doctor con el id que se recibio, y false si no 
+	 * encontró un doctor con ese id
+	 */
 	public boolean existById(Integer id) {
 		if(id == null || id <= 0) {
 			return false;
@@ -84,6 +104,16 @@ public class DoctorService {
 		return doctorRepository.existById(id);
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de buscary devolver un doctor en el sistema  <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param id Recibe el id del doctor a buscar
+	 * @return
+	 * @return Doctor Retorna el doctor encontrado.
+	 * @throws Exception [Condición en la que ocurre]
+	 */
 	public Doctor findById(Integer id) {
 		if(id == null || id <= 0) {
 			return null;
@@ -91,6 +121,26 @@ public class DoctorService {
 		return doctorRepository.findById(id);
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de devolver la información de los doctores registrados en el sistema <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @return
+	 * @return HashMap<Integer,Doctor> Retorna la información de los Doctores registrados
+	 */
+	public HashMap<Integer, Doctor> findAll(){
+		return this.doctorRepository.findAll();
+	}
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de devolver un conjunto de doctores ordenado por experiencia <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @return
+	 * @return TreeSet<Doctor> Retorna un conjunto de doctores ordenado
+	 */
 	public TreeSet<Doctor> findAllOrderedExp(){
 		TreeSet<Doctor> doctorsOrdered = new TreeSet<>();
 		doctorsOrdered.addAll(doctorRepository.findAll().values());
