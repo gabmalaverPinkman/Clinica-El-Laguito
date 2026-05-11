@@ -1,4 +1,5 @@
 
+
 package co.edu.uptc.clinic.repository;
 
 import java.util.HashMap;
@@ -41,8 +42,8 @@ public class DoctorRepository {
 	 * 
 	 * @author gabma
 	 *
-	 * @param newDoctor
-	 * @return boolean 
+	 * @param newDoctor Recibe el doctor a agregar al sistema
+	 * @return boolean Retorona true si se agregó o false si no.
 	 */
 	public boolean addDoctor(Doctor newDoctor) {
 		this.doctors.put(newDoctor.getMedicalId(), newDoctor);
@@ -73,14 +74,26 @@ public class DoctorRepository {
 		return this.doctors.get(key);
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de  devolver todos los doctores del sistema <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @return
+	 * @return HashMap<Integer,Doctor> devuelve un mapa lista de doctores
+	 * @throws Exception [Condición en la que ocurre]
+	 */
 	public HashMap<Integer, Doctor> findAll(){
 		return this.doctors;
 	}
-
+	
 	/**
-	 * Método encargado de retornar el valor de doctors.
+	 * <b>Descripción: </b> Método encargado de retornar el valor de doctors<br>
+	 * 
+	 * @author gabma
 	 *
-	 * @return valor de doctors
+	 * @return
+	 * @return HashMap<Integer,Doctor>
 	 */
 	public HashMap<Integer, Doctor> getDoctors() {
 		return doctors;

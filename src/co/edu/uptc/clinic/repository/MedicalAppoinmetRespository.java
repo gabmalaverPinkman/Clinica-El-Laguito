@@ -74,6 +74,14 @@ public class MedicalAppoinmetRespository {
 		return medicalAppoinmets.get(key);
 	}
 	
+	/**
+	 * <b>Descripción: </b> Método encargado de devolver todas las citas medicas <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @return
+	 * @return HashMap<Integer,MedicalAppoinmet> Retorna el valor del mapa de citas medicas
+	 */
 	public HashMap<Integer, MedicalAppoinmet> findAll(){
 		return this.medicalAppoinmets;
 	}

@@ -37,7 +37,7 @@ public class PatientRepository {
 	 * Crea una nueva instancia de PatientRepository.
 	 *
 	 * @param patients
-	 * @param emails Parámetro que determina
+	 * @param emails
 	 */
 	public PatientRepository(HashMap<Integer, Patient> patients, HashSet<String> emails) {
 		super();
@@ -64,8 +64,8 @@ public class PatientRepository {
 	 * 
 	 * @author gabma
 	 *
-	 * @param id
-	 * @return boolean
+	 * @param id Recibe el id del paciente a buscar en el sistema
+	 * @return boolean Fretorna true si existe en el sistema o false si no
 	 */
 	public boolean existById(Integer id) {
 		return patients.containsKey(id);
@@ -78,8 +78,8 @@ public class PatientRepository {
 	 * 
 	 * @author gabma
 	 *
-	 * @param idPatient
-	 * @param medication
+	 * @param idPatient Recibe el id del paciente al que se le va a añadir un medicamento
+	 * @param medication Recibe el nombre del medicamento
 	 * 
 	 * @return boolean
 	 */
@@ -97,20 +97,21 @@ public class PatientRepository {
 	 * 
 	 * @author gabma
 	 *
-	 * @param idPatient
+	 * @param idPatient Recibe el id del paciente a buscar en el sistema
 	 * @return
-	 * @return Patient
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return Patient Retorna el paciente encontrado
 	 */
 	public Patient findById(Integer idPatient) {
 		return patients.get(idPatient);
 	}
 
-
 	/**
-	 * Método encargado de retornar el valor de patients.
+	 * <b>Descripción: </b> Método encargado de retornar el valor de patients <br>
+	 * 
+	 * @author gabma
 	 *
-	 * @return valor de patients
+	 * @return
+	 * @return HashMap<Integer,Patient> 
 	 */
 	public HashMap<Integer, Patient> getPatients() {
 		return patients;
