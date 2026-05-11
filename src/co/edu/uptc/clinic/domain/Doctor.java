@@ -21,7 +21,7 @@ public class Doctor implements Comparable<Doctor>{
 	private IdentificationTypeEnum identificationType;
 	
 	/**
-	 * Atributo que determina el id del medico
+	 * Atributo que determina el id del médico
 	 */
 	private Integer medicalId;
 	
@@ -53,7 +53,7 @@ public class Doctor implements Comparable<Doctor>{
 	 * @param firstName
 	 * @param lastName
 	 * @param specialty
-	 * @param yearsOfExperience Parámetro que determina
+	 * @param yearsOfExperience
 	 */
 	public Doctor(IdentificationTypeEnum identificationType, Integer medicalId, String firstName, String lastName,
 			String specialty, int yearsOfExperience) {

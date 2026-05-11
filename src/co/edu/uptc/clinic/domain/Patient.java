@@ -10,9 +10,15 @@ import co.edu.uptc.clinic.enums.IdentificationTypeEnum;
 import co.edu.uptc.clinic.enums.PriorityEnum;
 
 
+
 /**
- * <b>Descripcion: </b> Clase modelo que representa la información del paciente <br>
- * @author gabma*
+ * Nombre de la clase: Patient
+ *
+ * <p>Clase que modela la informacion de paciente</p>
+ *
+ * @author gabma
+ * @version 1.0
+ * @since 11/05/2026
  */
 public class Patient {
 	

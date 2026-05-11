@@ -44,7 +44,7 @@ public class MedicalAppoinmet {
 	 * @param idMeducalAppoinmet
 	 * @param timeAppoinmet
 	 * @param patient
-	 * @param doctor Parámetro que determina
+	 * @param doctor 
 	 */
 	public MedicalAppoinmet(Integer idMeducalAppoinmet, LocalTime timeAppoinmet, Patient patient, Doctor doctor) {
 		super();

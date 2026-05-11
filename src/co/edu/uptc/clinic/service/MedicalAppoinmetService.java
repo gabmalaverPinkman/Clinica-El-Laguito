@@ -72,11 +72,11 @@ public class MedicalAppoinmetService {
 		if(medicalAppoinmet.getTimeAppoinmet() == null) {
 			return false;
 		}
-		if(patientService.existById(medicalAppoinmet.getPatient().getIdPatient())) {
-			return false;
+		if(!patientService.existById(medicalAppoinmet.getPatient().getIdPatient())) {
+		    return false;
 		}
-		if(doctorService.existById(medicalAppoinmet.getDoctor().getMedicalId())) {
-			return false;
+		if(!doctorService.existById(medicalAppoinmet.getDoctor().getMedicalId())) {
+		    return false;
 		}
 		return true;
 	}
