@@ -73,6 +73,10 @@ public class MedicalAppoinmetRespository {
 	public MedicalAppoinmet findById(Integer key) {
 		return medicalAppoinmets.get(key);
 	}
+	
+	public HashMap<Integer, MedicalAppoinmet> findAll(){
+		return this.medicalAppoinmets;
+	}
 
 	/**
 	 * Método encargado de retornar el valor de medicalAppoinmets.
