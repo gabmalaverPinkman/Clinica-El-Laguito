@@ -97,6 +97,20 @@ public class PatientService {
 		}
 		return patientRepository.addMedication(id, medication);
 	}
+	
+	/**
+	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * 
+	 * @author gabma
+	 *
+	 * @param id
+	 * @return
+	 * @return Patient
+	 * @throws Exception [Condición en la que ocurre]
+	 */
+	public Patient findById(Integer id) {
+		return this.patientRepository.findById(id);
+	}
 
 	/**
 	 * Método encargado de retornar el valor de patientRepository.
