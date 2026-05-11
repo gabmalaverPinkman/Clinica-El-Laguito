@@ -17,14 +17,13 @@ public class PatientService {
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * <b>Descripción: </b> Método encargado de validar los atributos de el nuevo paciente <br>
 	 * 
 	 * @author gabma
 	 *
 	 * @param patient
 	 * @return
-	 * @return boolean
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return boolean Retorna true si cumple con los requisistos de ser añadido o false si incumple algunos de ellos
 	 */
 	public boolean validate(Patient patient) {
 		if(patient.getIdPatient() == null || patient.getIdPatient() <= 0) {
@@ -46,14 +45,13 @@ public class PatientService {
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * <b>Descripción: </b> Método encargado de agregar un paxciente al sistema <br>
 	 * 
 	 * @author gabma
 	 *
-	 * @param patient
+	 * @param patient recibe el paciente nuevo a agregar al sistema
 	 * @return
-	 * @return boolean
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return boolean Retorna true si se agregó correctamente al sistema o false si no
 	 */
 	public boolean addPatient(Patient patient) {
 		if(validate(patient)) {
@@ -64,29 +62,27 @@ public class PatientService {
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * <b>Descripción: </b> Método encargado de verificar si un paciente existe segun su id <br>
 	 * 
 	 * @author gabma
 	 *
-	 * @param id
+	 * @param id Recibe el id del paciente a buscar
 	 * @return
-	 * @return boolean
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return boolean retorna True si el paciente existe o false si no
 	 */
 	public boolean existById(Integer id) {
 		return this.patientRepository.existById(id);
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * <b>Descripción: </b> Método encargado de añadir un nuevo medicamento al registro de cada paciente<br>
 	 * 
 	 * @author gabma
 	 *
-	 * @param id
-	 * @param medication
+	 * @param id recibe el id del paciente dueño del nuevo medicamento
+	 * @param medication recibe el nuevo medicamento
 	 * @return
-	 * @return boolean
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return boolean Retorna true si fue posible añadir el nuevo medicamento
 	 */
 	public boolean addMedication(Integer id, String medication) {
 		if(id == 0 || id <= 0) {
@@ -99,14 +95,13 @@ public class PatientService {
 	}
 	
 	/**
-	 * <b>Descripción: </b> Método encargado de ... <br>
+	 * <b>Descripción: </b> Método encargado de devolver un oaciento segun su id <br>
 	 * 
 	 * @author gabma
 	 *
-	 * @param id
+	 * @param id Recibe el id del paciente que tiene que devolver
 	 * @return
-	 * @return Patient
-	 * @throws Exception [Condición en la que ocurre]
+	 * @return Patient Retorna el paciente solicitado
 	 */
 	public Patient findById(Integer id) {
 		return this.patientRepository.findById(id);

@@ -31,6 +31,11 @@ public class DoctorService {
 	 */
 	private DoctorRepository doctorRepository;
 
+	/**
+	 * Crea una nueva instancia de DoctorService.
+	 *
+	 * @param doctorRepository 
+	 */
 	public DoctorService(DoctorRepository doctorRepository) {
 		super();
 		this.doctorRepository = doctorRepository;
@@ -112,7 +117,6 @@ public class DoctorService {
 	 * @param id Recibe el id del doctor a buscar
 	 * @return
 	 * @return Doctor Retorna el doctor encontrado.
-	 * @throws Exception [Condición en la que ocurre]
 	 */
 	public Doctor findById(Integer id) {
 		if(id == null || id <= 0) {
